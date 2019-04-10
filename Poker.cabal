@@ -1,0 +1,69 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 269c20568a7d61b62a7b37c5ab44da13f549a4b9bdf828fd76e56920325b5c54
+
+name:           Poker
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/Poker#readme>
+homepage:       https://github.com/francetem/Poker#readme
+bug-reports:    https://github.com/francetem/Poker/issues
+author:         Francis Perez
+maintainer:     francetem@hotmail.com
+copyright:      2018 Francis Perez
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/francetem/Poker
+
+library
+  exposed-modules:
+      Engine
+      Lib
+  other-modules:
+      Paths_Poker
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , hold-em
+    , random
+  default-language: Haskell2010
+
+executable Poker-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_Poker
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Poker
+    , base >=4.7 && <5
+    , hold-em
+    , random
+  default-language: Haskell2010
+
+test-suite Poker-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_Poker
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Poker
+    , base >=4.7 && <5
+    , hold-em
+    , random
+  default-language: Haskell2010
